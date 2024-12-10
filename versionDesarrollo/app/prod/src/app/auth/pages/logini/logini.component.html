@@ -1,0 +1,40 @@
+<div class="animate__animated animate__fadeIn d-flex flex-column justify-content-between h-100 py-sm-5">
+    <div class="h-75 d-flex flex-column pt-sm-5">
+        <form class="d-flex flex-column justify-content-center mb-2"
+          (ngSubmit)="submit()" 
+          [formGroup]="formularioLogin">
+        <div class="form-floating mb-3">
+            <input class="form-control" 
+               [ngClass]="{'is-invalid':campoNoEsValido('usuario') }" 
+               formControlName="usuario" 
+               id="floatingInput" 
+               type="text" 
+               placeholder="name@example.com">
+            <label for="floatingInput">Usuario</label>
+            <small>
+            <span class="text-secondary d-block"
+                  *ngIf="campoNoEsValido('usuario')" 
+                  type="text" 
+                >Campo obligatorio</span>
+            </small>
+        </div>
+    <div class="form-floating">
+        <input type="password" formControlName="password" [ngClass]="{'is-invalid':campoNoEsValido('password') }" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+        <small>
+            <span *ngIf="campoNoEsValido('password')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+    </div>
+    </form>
+    <label><a  routerLink="../recover/null"  >Olvidaste tu contraseña?</a></label>
+</div>
+</div>
+<div class="position-absolute bottom-0 start-50 translate-middle-x w-100 container">
+        <div class="h-25 d-flex flex-column justify-content-end mb-5">
+            <label class="registro w-100 text-center mb-4"><a routerLink="../signin">¿No estas registrado? <span>Crea tu usuario </span>aquí</a></label>
+            <app-button class="mx-auto" [nombre]="btn" (click)="submit()"></app-button>
+        </div>   
+        <app-emergencia-button></app-emergencia-button>
+</div>
+
+

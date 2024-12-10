@@ -1,0 +1,34 @@
+
+<div class="row">
+    <div *ngIf="cartilla[0] != 'sin resultado'" class="col overflow-auto">
+        <div *ngFor="let c of cartilla" >
+            <app-contacto [data]="c"></app-contacto>
+        </div>
+    </div>
+    <div *ngIf="cartilla[0] == 'sin resultado'">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <p class="fw-bolder">Lo sentimos no encontramos lo que está buscando, comuníquese por cualquiera de estos medios para mas infomración.</p>
+                </div>
+            </div>
+            <div class="row ms-4">
+                <div class="col">
+                    <p><i class="bi bi-telephone me-1"></i> <b> 0800-222-3462</b> de lun a vie de 9:00hs a 16:30hs</p>
+                </div>
+            </div>
+            <div class="row ms-4">
+                <div class="col">
+                    <p><i class="bi bi-whatsapp"></i> <b> 11-2761-0695</b> las 24hs</p>
+                </div>
+            </div>
+            <div class="row ms-4">
+                <div class="col">
+                    <p><i class="bi bi-envelope me-1"></i> <b> atbeneficiario&#64;osssb.com.ar</b></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

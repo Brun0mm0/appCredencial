@@ -1,0 +1,27 @@
+<form [formGroup]="formularioRecover">
+    <div class="row g-2 h-75">
+        <div class="col-md">
+            <div class="form-floating">
+                <input class="form-control"
+                [ngClass]="{'is-invalid': campoNoEsValido('dni')}" 
+                placeholder=""
+                formControlName="dni"    
+                type="text">
+                <label >Documento</label>
+                <small>
+                    <span class="text-secondary d-block mb-3"
+                    type="text"
+                    *ngIf="campoNoEsValido('dni')"
+                    >
+                    No es un número válido
+                </span>
+            </small>
+        </div>
+        <small class="mt-3 d-bloc">
+            <span class="text-secondary ">
+                Ingrese su DNI y se le enviará un mail con un link para que puedo recuperar su contraseña
+            </span>
+        </small>
+        </div>
+    </div>
+</form>

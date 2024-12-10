@@ -1,0 +1,43 @@
+<div  class="animate__animated animate__fadeInUp animate__faster row mx-auto" [ngClass]="[clase]">
+  <h1 class="text-center mb-4">Afiliado</h1>
+
+  <div class="px-3">
+      <p>Se certifica que <b>{{afiliado.nombre}} {{afiliado.apellido}}</b>
+          </p>
+      <p>Afiliado N&ordm; 
+          <b>{{afiliado.cob_nro}} - {{afiliado.cob_ext}}</b>
+      </p>
+      <p>Esta autorizado para ser atendido en los servicios de OSSSB</p>
+  </div>
+  <div class="d-flex justify-content-evenly">
+      <p class="text-center">Plan de cobertura:
+        <br>
+          <b>{{afiliado.Plan}}</b>
+      </p>
+      <p class="text-center">Tipo de cobertura:
+        <br>
+          <b *ngIf="afiliado?.Vigente != '0'">Vigente</b>
+          <b *ngIf="afiliado?.Vigente != '1'">No Vigente</b>
+          </p>
+        </div>
+      </div>
+  <div class="mt-4 px-5 d-flex justify-content-center">
+      <img class="img-fluid px-1" style="max-height: 72px;" [src]="img" alt="">
+    </div>
+    
+  <div *ngIf="clase == 's300-credencial'">
+    <div class="floritura1">
+    </div>
+    <div class="floritura2">
+    </div>
+  </div>
+  <div class="logoNegativo position-absolute top-50 start-50 translate-middle d-flex justify-content-center">
+    <img class="mw-100" [src]="img_fondo" alt="">
+  </div>
+<div class="mx-auto d-flex flex-column justify-content-center mt-4">
+  <button (click)="descargar()"[ngClass]="{'btn-descarga-s300' : clase == 's300-credencial', 'btn-descarga' : clase !== 's300-credencial' }"><i class="fa-solid fa-file-arrow-down"></i> Descargue su credencial</button>
+  <!-- <button *ngIf="afiliado?.Plan == 'S300J' || afiliado?.Plan == 'S300E'" (click)="cartilla()" type="link" [ngClass]="{'btn-cartilla-s300j' : clase == 's300-credencial', 'btn-cartilla' : clase !== 's300-credencial' }"><i class="fa-solid fa-book-medical"></i><p>Ver Cartilla</p></button> -->
+  <button (click)="cartilla()" type="link" [ngClass]="{'btn-cartilla-s300j' : clase == 's300-credencial', 'btn-cartilla' : clase !== 's300-credencial' }"><i class="fa-solid fa-book-medical"></i><p>Ver Cartilla</p></button>
+</div>
+<!-- <div class="position-absolute top-0 end-0"> -->
+<!-- </div> -->

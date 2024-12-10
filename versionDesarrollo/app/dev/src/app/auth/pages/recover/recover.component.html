@@ -1,0 +1,7 @@
+<div class="h-100 d-flex flex-column justify-content-between pt-3" >
+    <app-recover-dni *ngIf="token"></app-recover-dni>
+    <app-recover-password *ngIf="!token"></app-recover-password>
+        <app-button class="mx-auto" [nombre]="btn" (click)="submit()"></app-button>
+        <div class="volver d-block"><a routerLink="./auth"> <p> Volver </p></a></div>
+    </div>
+

@@ -1,0 +1,44 @@
+<div class="container h-75 d-flex flex-column">
+    <mat-tree class="bg-transparent" [dataSource]="linksData" [treeControl]="treeControl">
+        <!-- This is the tree node template for leaf nodes -->
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          <!-- use a disabled button to provide padding for tree leaf -->
+          <button mat-icon-button disabled></button>
+          <a href='{{node.url}}'>{{node.name}}</a>
+        </mat-tree-node>
+        <!-- This is the tree node template for expandable nodes -->
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'Toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+            {{node.name}}
+          </button>
+          <!-- <a href="{{node.url}}"> -->
+            <!-- </a> -->
+        </mat-tree-node>
+      </mat-tree>
+      <!-- <mat-tree class="bg-transparent" [dataSource]="familiaData" [treeControl]="familiaControl">
+        This is the tree node template for leaf nodes
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+          use a disabled button to provide padding for tree leaf
+          <button mat-icon-button disabled></button>
+          <a href='{{node.dni}}'>{{node.nombre}}</a>
+        </mat-tree-node>
+        This is the tree node template for expandable nodes
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChildFamilia" matTreeNodePadding>
+          <button mat-icon-button matTreeNodeToggle
+                  [attr.aria-label]="'Toggle ' + node.nombre">
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+            {{node.nombre}}
+          </button>
+          <a href="{{node.url}}">
+            </a>
+        </mat-tree-node>
+      </mat-tree> --> 
+        <button class="btn btn-link d-block mx-auto my-5" (click)="salir()">Salir</button>
+        <app-emergencia-button></app-emergencia-button>
+</div>

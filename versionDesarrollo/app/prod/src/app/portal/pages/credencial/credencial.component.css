@@ -1,0 +1,143 @@
+.credencial{
+    width: 310px;
+    background: linear-gradient(rgba(245,245,245,0.9), rgba(245,245,245,0.9)), url('../../../../assets/img/logoBG.png');
+    background-repeat: no-repeat;
+    background-position:center;
+}
+/* FIXME: ### BTN DESCARGA ### */
+
+.btn-descarga {
+    border: none;
+    background-color: transparent;
+    color: #009ada;
+}
+.btn-descarga:hover{
+    color: #0078aa ;
+}
+.btn-descarga:active{
+    color: #52b8e3;
+}
+
+/* FIXME: ### BTN DESCARGA S300J ### */
+
+.btn-descarga-s300 {
+    border: none;
+    background-color: transparent;
+    color: #daebf2;
+}
+.btn-descarga-s300:hover {
+    color: #f5f5f5;
+}
+.btn-descarga-s300:active {
+    color: #88cde9;
+}
+
+/* FIXME: ### BTN CARTILLA ### */
+
+.btn-cartilla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #009ada;
+    margin: 0.5rem;
+    padding-right: 16px;
+}
+.btn-cartilla p {
+    margin: 0;
+    padding-left: 2px;
+}
+.btn-cartilla i {
+    width: 24px;
+    font-size: 20px;
+}
+.btn-cartilla:hover {
+    color: #0078aa ;
+}
+.btn-cartilla:active {
+    color: #52b8e3;
+}
+
+/* FIXME: ### BTN CARTILLA S300J ### */
+
+.btn-cartilla-s300j {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #daebf2;
+    margin: 0.5rem;
+    padding-right: 16px;
+}
+.btn-cartilla-s300j p {
+    margin: 0;
+    padding-left: 2px;
+}
+.btn-cartilla-s300j i {
+    width: 24px;
+    font-size: 20px;
+}
+.btn-cartilla-s300j:hover {
+    color: #f5f5f5;
+}
+.btn-cartilla-s300j:active {
+    color: #88cde9;
+}
+
+/* ###################### */
+
+.s300-credencial {
+    max-width: 340px;
+}
+.logoNegativo {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    z-index: -100;
+}
+.floritura1 {
+    background-image: url('../../../../assets/img/florituras.png');
+    background-position: right bottom;
+    height: 400px;
+    width: 400px;
+    z-index: -100;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.floritura2 {
+    background-image: url('../../../../assets/img/florituras.png');
+    background-position: left top;
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -100;
+}
+@media (max-width: 768px) {
+
+.floritura1 {
+    height: 400px;
+    width: 200px;
+    top: 0;
+    left: 0;
+}
+
+.floritura2{
+    height: 400px;
+    width: 200px;
+    bottom: 0;
+    right: 0;
+}
+}
+
+@media(max-width: 768px) {
+    .credencial-imagen {
+        display: none;
+    }
+}

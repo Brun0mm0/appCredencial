@@ -1,0 +1,64 @@
+<form *ngIf="formulario"[formGroup]="cartilla">
+    <div class="row g-2 mb-2">
+        <div class="col">
+        <div class="form-floating">
+            <select class="form-select"
+                    formControlName="region" 
+                    id="floatingSelectGrid">
+            <option value="" selected>Elija una Región</option>
+            <option *ngFor="let i of region" [value]="i.idRegion">{{i.region}}</option>
+            </select>
+            <label for="floatingSelectGrid">Región</label>
+        </div>
+        </div>
+    <div class="col">
+        <div class="form-floating">
+        <select class="form-select" 
+                formControlName="zona" 
+                id="floatingSelectGrid">
+            <option value="" selected>Elija una Zona</option>
+            <option *ngFor="let i of zona" [value]="i.id">{{i.provincia}}</option>
+        </select>
+        <label for="floatingSelectGrid">Zona</label>
+        </div>
+    </div>
+</div>
+<div class="form-floating mb-2">
+    <select class="form-select" 
+            formControlName="atencion" 
+            id="floatingSelect" 
+            aria-label="Floating label select example">
+        <option selected>Elija tipo de atención</option>
+        <option *ngFor="let i of atencion" [value]="i.id_atencion">{{i.atencion}}</option>
+    </select>
+    <label for="floatingSelect">Atención</label>
+</div>
+<div class="form-floating mb-2">
+    <select class="form-select" 
+            formControlName="especialidad"s
+            id="floatingSelect" 
+            aria-label="Floating label select example">
+        <option selected>Elija una especialidad</option>
+        <option *ngFor="let i of especialidad" [value]="i.id_especialidad">{{i.especialidad}}</option>
+    </select>
+    <label for="floatingSelect">Especialidad</label>
+</div>
+<div class="d-flex justify-content-center">
+    <app-button nombre="Buscar" (click)="mostrar()"></app-button>
+</div>
+</form>
+<div class="position-absolute top-0 end-0">
+    <button (click)="volver()" class="btn-cartilla"><p>Volver</p></button>
+</div>
+<div *ngIf="!formulario" class="d-flex justify-content-between align-items-center buscar" (click)="breadcrumb()">
+    <nav aria-label="breadcrumb" class="d-flex align-items-center">
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item" aria-current="page">{{zonaBc}}</li>
+            <li class="breadcrumb-item" aria-current="page">{{atencionBc}}</li>
+            <li class="breadcrumb-item" aria-current="page">{{especialidadBc}}</li>
+        </ol>
+    </nav>
+    <button class="btn-buscar"><p class="m-0"><i class="fa-solid fa-magnifying-glass"></i></p></button>
+</div>
+<hr class="my-2">
+<app-table [cartilla]="cartillaRes"></app-table>

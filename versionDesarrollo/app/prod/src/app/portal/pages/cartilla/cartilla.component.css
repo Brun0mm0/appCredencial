@@ -1,0 +1,36 @@
+.btn-cartilla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #009ada;
+    /* color: black; */
+    margin: 0.5rem;
+    padding-right: 16px;
+}
+.btn-cartilla p {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    padding-left: 2px;
+}
+.btn-cartilla i {
+    width: 24px;
+    font-size: 22px;
+}
+.btn-cartilla:hover{
+    color: #0078aa ;
+}
+.btn-buscar {
+    border: none;
+    background: none;
+}
+.buscar {
+    cursor: pointer;
+}
+.cartilla {
+    background-color: aqua;
+}

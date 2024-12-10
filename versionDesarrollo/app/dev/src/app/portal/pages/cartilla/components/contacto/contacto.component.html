@@ -1,0 +1,10 @@
+<h5><p class="mb-1 fw-semibold">{{data.nombre | uppercase}}</p></h5>
+<!-- <pre>{{direccion | json}}</pre> -->
+<h6><p class="mb-0 ms-3"><i class="bi bi-geo-alt me-1"></i>{{data?.direccion}}</p></h6>
+<h6 *ngIf="data?.telefono_1"><p class="mb-0 ms-3 fw-light"><i class="bi bi-telephone me-1"></i>{{data?.telefono_1}}</p></h6>
+<h6 *ngIf="data?.telefono_2"><p class="mb-0 ms-3"><i class="bi bi-telephone me-1"></i>{{data?.telefono_2}}</p></h6>
+<h6 *ngIf="data?.email"><p class="mb-0 ms-3"><i class="bi bi-envelope me-1"></i>{{data?.email}}</p></h6>
+<h6 *ngIf="data?.whatsapp"><p class="mb-0 ms-3"><i class="bi bi-whatsapp"></i> {{data?.whatsapp}}</p></h6>
+<h6 *ngIf="data?.observaciones_prestador"><p class="mb-0 ms-3">({{data?.observaciones_prestador}})</p></h6>
+<h6 class="ms-3 localidad"><p class="mb-0 ms-3 text-capitalize">{{data?.localidad}}</p></h6>
+<hr class="my-2 mx-3">

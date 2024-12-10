@@ -1,0 +1,64 @@
+<form [formGroup]="localidad">
+    <!-- NOTA: CP -->
+
+    <div class="d-flex flex-column justify-content-center">
+    <div class="form-floating mb-2">
+        <input type="text"  
+        id="cp" 
+        [ngClass]="{'is-invalid':campoNoEsValido('cp')}" 
+        formControlName="cp" 
+        name="cp"
+        placeholder="0000"
+        class="form-control">
+        <label for="cp">Código Postal</label>
+        <small>
+            <span *ngIf="campoNoEsValido('cp')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+    </div>
+    </div>
+
+    <div *ngIf="spinner" class="d-flex justify-content-center mt-5">
+        <div class="spinner-grow" role="status" style="width: 5rem; height: 5rem; color:#89D9C0">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+    </div>
+
+    <div *ngIf="Localidades.length !== 0 && !spinner" class="animate__animated animate__fadeIn">
+    <!-- NOTA: LOCALIDAD -->
+        <div class="form-floating mb-2">
+            <select name="Localidad" 
+            id="Localidad" 
+            name="localidad"
+            [ngClass]="{'is-invalid':campoNoEsValido('localidad')}" 
+            formControlName="localidad" 
+            aria-label="Default select example" 
+            class="form-select">
+            <option value="" selected>Seleccione Localidad</option>
+            <option *ngFor="let localidad of Localidades" [value]="localidad.loc_id">{{localidad.loc_des}}, {{localidad.pro_des}}</option>
+        </select>
+        <label for="municipio">Localidad</label>
+        <small>
+            <span *ngIf="campoNoEsValido('localidad')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+    </div>
+    <!-- NOTA: DIRECCION -->
+    <div class="form-floating mb-2">
+        <input class="form-control form-control-lg" 
+        [ngClass]="{'is-invalid':campoNoEsValido('direccion')}" 
+        formControlName="direccion" 
+        id="direccion"
+        name="direccion" 
+        placeholder="Direccion">
+        <label for="direccion">Dirección</label>
+        <small>
+            <span *ngIf="campoNoEsValido('direccion')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+    </div>
+</div>
+</form>
+<div class="position-absolute bottom-0 start-50 translate-middle-x w-100 container">
+    <div class="d-flex justify-content-between mb-5">
+        <button class="btn-link"><a routerLink="/auth/signin/datos-personales" >Atras</a></button>
+        <button class="btn-link" [disabled]="localidad.invalid"  routerLink="/auth/signin/datos-usuario">Siguiente</button>
+    </div>
+</div>

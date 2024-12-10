@@ -1,0 +1,56 @@
+<form [formGroup]="formUsuario" action="">
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control" 
+               [ngClass]="{'is-invalid':campoNoEsValido('usuario') || errorUsuario()}" 
+               formControlName="usuario" 
+               placeholder=""
+               id="usuario"> 
+        <label for="usuario">Usuario</label>
+        <small>
+            <span *ngIf="campoNoEsValido('usuario')" 
+                  type="text" 
+                  class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+        <small>
+            <span *ngIf="usuario.errors?.['usuarioExists']" 
+                  type="text" 
+                  class="text-danger d-block">El nombre de usuario ya existe</span>
+        </small>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="password" 
+               class="form-control" 
+               [ngClass]="{'is-invalid':campoNoEsValido('password') || errorPass('password')}" 
+               id="password" formControlName="password" placeholder="">
+        <label for="password">Contraseña</label>
+        <small>
+            <span class="text-secondary d-block">Mínimo 6 caracteres</span>
+        </small>
+        <small>
+            <span *ngIf="campoNoEsValido('password')" 
+                  type="text" class="text-secondary d-block">Campo obligatorio</span>
+            <span *ngIf="errorPass('password')" 
+                  type="text" class="text-secondary d-block">Debe tener como mínimo 6 caracteres</span>
+        </small>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="password" 
+               class="form-control" 
+               [ngClass]="{'is-invalid':campoNoEsValido('password2') || errorPass2('password2')}" 
+               id="password2" formControlName="password2" placeholder="">
+        <label for="password2">Repita la contraseña</label>
+        <small>
+            <span *ngIf="campoNoEsValido('password2')" 
+                  type="text" 
+                  class="text-secondary d-block">Campo obligatorio</span>
+            <span *ngIf="errorPass2('password2')" 
+                  type="text" class="text-secondary d-block">Las contraseñas no son iguales</span>
+        </small>
+    </div>
+</form>
+<div class="position-absolute bottom-0 start-50 translate-middle-x w-100 container">
+    <div class="d-flex justify-content-between mb-5">
+        <button class="btn-link" routerLink="/auth/signin/datos-domicilio">Atras</button>
+        <app-button [nombre]="btn" (click)="grabar()"></app-button>
+    </div>
+</div>

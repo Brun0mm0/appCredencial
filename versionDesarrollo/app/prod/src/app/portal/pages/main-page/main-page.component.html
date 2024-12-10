@@ -1,0 +1,31 @@
+<mat-sidenav-container fullscreen [ngClass]="{'s300j-fondo': s300jclass, 's300e-fondo' : s300eclass}" class="whitesmoke">
+    <mat-sidenav #sidenav mode="over" class="whitesmoke">
+      <mat-toolbar class="bg-transparent">
+        <span>
+            <img class="img-fluid " src="./assets/img/logoBancarios.PNG" alt="" style="max-width: 175px;">
+        </span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-toolbar>
+     <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-toolbar class="bg-transparent">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>more_vert</mat-icon>
+            <span>Menu</span>
+        </button>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img class="mw-100 mb-2 px-5" src="./assets/img/logoBancarios.PNG" alt="">
+            </div> 
+            <div class="col-md-6 col-sm-12">
+                <router-outlet class="animate__animated animate__bounce"></router-outlet>
+            </div>
+        </div>
+    </div>
+</mat-sidenav-container>

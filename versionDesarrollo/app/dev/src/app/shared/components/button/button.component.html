@@ -1,0 +1,7 @@
+<button type="submit" 
+        class="btn btn-primary " 
+        [ngClass]="{'disabled': !habilitado}">
+        <span *ngIf="spinner" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            {{nombre}}
+    <!-- <span *ngIf="spinner" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> -->
+</button>

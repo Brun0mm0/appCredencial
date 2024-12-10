@@ -1,0 +1,40 @@
+<form [formGroup]="formDni">
+  <div class="row g-2">
+      <div class="col-l">
+          <div class="form-floating">
+              <select formControlName="tipo" [ngClass]="{'is-invalid': campoNoEsValido('tipo')}" class="form-select" id="tipoDoc" placeholder="" >
+                  <option selected value="dni">DU</option>
+                  <option value="le">LE</option>
+                  <option value="lc">LC</option>
+                </select>
+                <label for="tipoDoc">Tipo de documento</label>
+                <small>
+                    <span *ngIf="campoNoEsValido('tipo')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+                </small>
+            </div>
+        </div>
+        <div class="col-l">
+        <div class="form-floating">
+            <input type="text" formControlName="numero" [ngClass]="{'is-invalid': campoNoEsValido('numero') || campoNoEsValidoPattern('numero') || numeroErrors(),'is-valid': numeroValid()}" class="form-control " >
+            <!-- <input type="text" formControlName="numero" class="form-control " > -->
+          <label >Numero de documento</label>
+          <small>
+            <span *ngIf="campoNoEsValido('numero')" type="text" class="text-secondary d-block mt-1">Campo obligatorio</span>
+            <span *ngIf="campoNoEsValidoPattern('numero')" type="text" class="text-secondary d-block mt-1">No es un número válido</span>
+            <span *ngIf="numeroControl.errors?.['msg']" type="text" class="text-danger d-block mt-1">{{numeroControl.errors?.['msg']}}</span>
+        </small>
+        </div>
+      </div>
+  </div>
+</form>
+<!-- <pre>
+    {{numeroControl.errors | json}}
+</pre> -->
+<div class="position-absolute bottom-0 start-50 translate-middle-x w-100 container">
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn-link" [disabled]="!formDni.valid"  routerLink="/auth/signin/datos-personales">Siguiente</button>
+    </div>
+    <div class="mb-5 d-flex justify-content-center">
+        <button class="btn-link" routerLink="/auth/login">Volver</button>
+    </div>
+</div>

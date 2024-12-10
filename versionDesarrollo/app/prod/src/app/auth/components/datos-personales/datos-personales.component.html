@@ -1,0 +1,37 @@
+<form [formGroup]="formPersonales">
+    <div class="form-floating mb-2">
+        <input type="text" formControlName="nombre" [ngClass]="{'is-invalid':campoNoEsValido('nombre') }" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Nombre</label>
+        <small>
+            <span *ngIf="campoNoEsValido('nombre')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="text" formControlName="apellido" [ngClass]="{'is-invalid':campoNoEsValido('apellido') }" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Apellido</label>
+        <small>
+            <span *ngIf="campoNoEsValido('apellido')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="email" formControlName="email" [ngClass]="{'is-invalid':campoNoEsValido('email') || campoNoEsValidoPattern('email')}" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Email</label>
+        <small>
+            <span *ngIf="campoNoEsValido('email')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+            <span *ngIf="campoNoEsValidoPattern('email')" type="text" class="text-secondary d-block">El mail no tiene un formato válido</span>
+        </small>
+      </div>
+      <div class="form-floating mb-2">
+        <input type="tel" formControlName="telefono" [ngClass]="{'is-invalid':campoNoEsValido('telefono') }" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Telefono</label>
+        <small>
+            <span *ngIf="campoNoEsValido('telefono')" type="text" class="text-secondary d-block">Campo obligatorio</span>
+        </small>
+      </div>
+</form>
+<div class="position-absolute bottom-0 start-50 translate-middle-x w-100 container">
+  <div class="d-flex justify-content-between mb-5">
+      <button class="btn-link"><a routerLink="/auth/signin/dni" >Atras</a></button>
+      <button class="btn-link" [disabled]="formPersonales.invalid"  routerLink="/auth/signin/datos-domicilio">Siguiente</button>
+  </div>
+</div>
